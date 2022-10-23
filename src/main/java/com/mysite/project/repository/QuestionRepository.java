@@ -1,9 +1,6 @@
 package com.mysite.project.repository;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.mysite.project.model.Question;
 
 /*
@@ -12,7 +9,6 @@ import com.mysite.project.model.Question;
  * 이것은 JpaRepository를 생성하기 위한 규칙
  * */
 public interface QuestionRepository extends JpaRepository<Question, Integer> {
-	
 	Question findBySubject(String subject);
 
 }

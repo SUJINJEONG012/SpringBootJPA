@@ -15,16 +15,18 @@
         </tr>
     </thead>
     <tbody>
-    <!-- 
-    반복문은 반복횟수만큼 해당 엘리먼트를 반복하여 표시한다. 
-    반복문 속성은 자바의 for each 문과 유사하다.
-     -->
-        <tr th:each="question : ${questionList}">
-            <td th:text="${question.subject}"></td>
+        <tr th:each="question, index : ${questionList}">
+            <td>
+                <a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"></a>
+            </td>
             <td th:text="${question.createDate}"></td>
         </tr>
     </tbody>
 </table>
+
+
+<a th:href="@{/question/create}" class="btn btn-primary">질문 등록하기</a>
+
 
 
 
