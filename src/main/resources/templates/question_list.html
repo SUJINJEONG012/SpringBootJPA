@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Hello Template</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>제목</th>
+            <th>작성일시</th>
+        </tr>
+    </thead>
+    <tbody>
+    <!-- 
+    반복문은 반복횟수만큼 해당 엘리먼트를 반복하여 표시한다. 
+    반복문 속성은 자바의 for each 문과 유사하다.
+     -->
+        <tr th:each="question : ${questionList}">
+            <td th:text="${question.subject}"></td>
+            <td th:text="${question.createDate}"></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+</body>
+</html>
