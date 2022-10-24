@@ -18,4 +18,20 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class AnswerController {
 
+	private final QuestionService questionService;
+	private final AnswerService answerService;
+	
+	//답변생성
+	@PostMapping("/create/{id}")
+	public String createAnswer(Model model, @PathVariable("id") Integer id, 
+			@RequestParam String content) {
+	
+		Question question = this.questionService.getQuestion(id);
+		
+		//answerService에서 만든 메서드를 호출하여 답변을 저장
+		this.answerService.create(question, content);
+		
+		// %s는 문자열 
+		return String.format("redirect:/question/detail/%s", id);
+	}
 }
