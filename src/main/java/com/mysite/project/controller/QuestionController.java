@@ -14,9 +14,10 @@ import com.mysite.project.service.QuestionService;
 import lombok.RequiredArgsConstructor;
 
 
-@RequestMapping("/question")
+
 @RequiredArgsConstructor
 @Controller
+@RequestMapping("/question")
 public class QuestionController {
 	
 	//생성자 주입
@@ -36,9 +37,9 @@ public class QuestionController {
 	 * detail 메서드에서 Model 객체에 "question" 이라는 이름으로 Question 객체를 저장
 	 * */
 	
+	
 	@RequestMapping("/detail/{id}")
 	public String detail(Model model, @PathVariable("id") Integer id) {
-		
 		Question question = this.questionService.getQuestion(id);
 		model.addAttribute("question", question);
 		
