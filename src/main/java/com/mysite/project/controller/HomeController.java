@@ -7,18 +7,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HomeController {
-
+	
 	@GetMapping("/")
-	@ResponseBody
 	public String home() {
-		
-		System.out.println("index");
-		return "여깅 ㅔ오신걸 환영하빈다.";	
+		return "index";	
 	}
 	
-	@RequestMapping("/")
-	public String root() {
-		return "redirect:/question/list";
-	}
+//	@RequestMapping("/")
+//	public String index() {
+//		return "redirect:/question/list";
+//	}
+	
 	
 }
