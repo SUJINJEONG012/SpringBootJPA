@@ -1,7 +1,4 @@
 <html layout:decorate="~{layout}">
-
-    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
     
 	<div layout:fragment="content" class="container my-3">
 		<!-- 제목 -->
@@ -18,7 +15,6 @@
 					<div class="badge bg-light text-dark p-2 text-start"></div>
 					<div
 						th:text="${#temporals.format(question.createDate,'yyyy-MM-dd HH:mm')}"></div>
-
 				</div>
 			</div>
 		</div>
