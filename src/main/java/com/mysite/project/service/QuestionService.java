@@ -1,5 +1,6 @@
 package com.mysite.project.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +19,14 @@ public class QuestionService {
 	//생성자로 주입
 	private final QuestionRepository questionResitory;
 	
+	//질문 등록 
+	public void create(String subject, String content) {
+		Question q = new Question();
+		q.setSubject(subject);
+		q.setContent(content);
+		q.setCreateDate(LocalDateTime.now());
+		this.questionResitory.save(q);
+	} 
 	//질문 리스트 
 	public List<Question> getList(){
 		return this.questionResitory.findAll();
