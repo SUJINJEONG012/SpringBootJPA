@@ -77,13 +77,21 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect -->
 		<dependency>
-			<groupId>nz.net.ultraq.thymeleaf</groupId>
-			<artifactId>thymeleaf-layout-dialect</artifactId>
-			
-		</dependency>
-
+            <groupId>nz.net.ultraq.thymeleaf</groupId>
+            <artifactId>thymeleaf-layout-dialect</artifactId>
+        </dependency>
+        
+        
+        <!--
+        validator가 어떠한 비즈니스적 로직에 대한 검증이 아닌, 
+        그 클래스로 생성된 객체 자체의 필드에 대한 유효성 여부를 검증합니다.
+          -->
+        <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-validation</artifactId>
+    
+</dependency>
 
 
 
