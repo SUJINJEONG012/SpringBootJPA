@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -7,6 +7,6 @@
 <body>
 dd
 
-<a href="/question/list">게시판 리스트 보러가기</a>
+<a th:href="@{/question/list}">게시판 리스트 보러가기</a>
 </body>
 </html>
