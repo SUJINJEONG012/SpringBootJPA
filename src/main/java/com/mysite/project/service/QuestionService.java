@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.mysite.project.DataNotFoundException;
@@ -52,6 +55,14 @@ public class QuestionService {
 		}else {
 			throw new DataNotFoundException("question not found,  아이디를 찾을 수 없습니다.");
 		}
+	}
+	
+	
+	
+	//페이징처리
+	public Page<Question> getList(int page){
+		Pageable pageable = PageRequest.of(page,10);
+		return this.questionResitory.findAll(pageable);
 	}
 
 }
