@@ -5,9 +5,9 @@
 
     <form th:action="@{/question/create}" th:object="${questionForm}" method="post">
 
-        <div class="alert alert-danger" role="alert" th:if="${#fields.hasAnyErrors()}">
-            <div th:each="err : ${#fields.allErrors()}" th:text="${err}" />
-        </div>
+      
+      <!--오류부분 공통으로 넣기 -->
+        <div th:replace="form_errors :: formErrorsFragment"></div>
 
 <!--  th:field="*{subject}" 이걸 넣으면 입력 한 값이 사라지지 않는다.-->
         <div class="mb-3">
