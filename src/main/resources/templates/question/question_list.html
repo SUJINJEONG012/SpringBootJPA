@@ -19,14 +19,26 @@
 
 			<tr th:each="question, loop: ${paging}">
 
-				<td th:text="${loop.count}"></td>
+				<!-- <td th:text="${loop.count}"></td> -->
+				<!-- 게시물 번호 공식 -->
+				<td th:text="${paging.getTotalElements - (paging.number * paging.size) - loop.index}"></td>
+				
 				<td><a th:href="@{|/question/detail/${question.id}|}"
-					th:text="${question.subject}"></a></td>
+					th:text="${question.subject}"></a>
+					
+				 <span class="text-danger small ms-2"
+                        th:if="${#lists.size(question.answerList) > 0}" 
+                        th:text="${#lists.size(question.answerList)}">
+                    </span>
+				
+				</td>
 				<td
 					th:text="${#temporals.format(question.createDate, 'YYYY-MM-dd HH:mm')}"></td>
 			</tr>
 		</tbody>
 	</table>
+
+<!-- 페이징처리 rest형식으로 해보기 -->
 
 	<!-- 페이징처리 -->
 	<div th:if=${!paging.isEmpty()}>
@@ -51,7 +63,8 @@
 			
 		</ul>
 	</div>
-
+	<!-- 페이지 끝 -->
+	
 
 
 </div>
