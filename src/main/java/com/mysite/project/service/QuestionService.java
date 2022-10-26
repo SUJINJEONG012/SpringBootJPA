@@ -1,13 +1,14 @@
 package com.mysite.project.service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.mysite.project.DataNotFoundException;
@@ -61,7 +62,10 @@ public class QuestionService {
 
 	//페이징처리
 	public Page<Question> getList(int page){
-		Pageable pageable = PageRequest.of(page, 10);
+		//작성일시 역순으로 조회
+		List<Sort.Order> sorts = new ArrayList<>();
+		sorts.add(Sort.Order.desc("createDate"));
+		Pageable pageable = PageRequest.of(page, 10, Sort.by(sorts));
 		return this.questionRepository.findAll(pageable);
 	}
 	
