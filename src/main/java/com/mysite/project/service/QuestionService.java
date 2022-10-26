@@ -64,5 +64,6 @@ public class QuestionService {
 		Pageable pageable = PageRequest.of(page,10);
 		return this.questionResitory.findAll(pageable);
 	}
+	
 
 }
