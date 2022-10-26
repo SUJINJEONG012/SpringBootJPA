@@ -1,4 +1,4 @@
-package com.mysite.project.controller;
+package com.mysite.project;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
