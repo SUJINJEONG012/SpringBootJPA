@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.mysite.project.AnswerForm;
 import com.mysite.project.QuestionForm;
 import com.mysite.project.model.Question;
 import com.mysite.project.service.QuestionService;
@@ -64,7 +65,13 @@ public class QuestionController {
 	
 	
 	@RequestMapping("/detail/{id}")
-	public String detail(Model model, @PathVariable("id") Integer id) {
+	/*
+	 * AnswerForm answerForm 추가해야하는 이유:
+	 * 
+	 * question_detail 템플릿이 AnswerForm을 사용하기 때문에 
+	 * QuestionCotroller의 detail 메서드도 같이 수정해야 한다.
+	 * */
+	public String detail(Model model, @PathVariable("id") Integer id, AnswerForm answerForm) {
 		Question question = this.questionService.getQuestion(id);
 		model.addAttribute("question", question);
 		
