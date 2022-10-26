@@ -2,6 +2,8 @@ package com.mysite.project.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.mysite.project.model.Question;
 
@@ -15,4 +17,11 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
 	Question findBySubjectAndContent(String subject, String content);
 	
 	List<Question> findBySubjectLike(String subject);
+	
+	
+	/* 페이징처리 로직
+	 * Pageable 객체를 입력받아 Page<Question> 타입 객체를 리턴하는
+	 * findAll 메서드를 생성 
+	 * */
+	Page<Question> findAll(Pageable pageable);
 }
