@@ -13,6 +13,7 @@ import com.mysite.project.model.Question;
  * 이것은 JpaRepository를 생성하기 위한 규칙
  * */
 public interface QuestionRepository extends JpaRepository<Question, Integer> {
+	
 	Question findBySubject(String subject);
 	Question findBySubjectAndContent(String subject, String content);
 	
@@ -23,5 +24,6 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
 	 * Pageable 객체를 입력받아 Page<Question> 타입 객체를 리턴하는
 	 * findAll 메서드를 생성 
 	 * */
+	
 	Page<Question> findAll(Pageable pageable);
 }

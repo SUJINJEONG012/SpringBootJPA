@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+
 import org.springframework.stereotype.Service;
 
 import com.mysite.project.DataNotFoundException;
@@ -20,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 public class QuestionService {
 	
 	//생성자로 주입
-	private final QuestionRepository questionResitory;
+	private final QuestionRepository questionRepository;
 	
 	//질문 등록 
 	public void create(String subject, String content) {
@@ -28,11 +29,11 @@ public class QuestionService {
 		q.setSubject(subject);
 		q.setContent(content);
 		q.setCreateDate(LocalDateTime.now());
-		this.questionResitory.save(q);
+		this.questionRepository.save(q);
 	} 
 	//질문 리스트 
 	public List<Question> getList(){
-		return this.questionResitory.findAll();
+		return this.questionRepository.findAll();
 	}
 	
 	
@@ -47,7 +48,7 @@ public class QuestionService {
 	 * */
 	
 	public Question getQuestion(Integer id) {
-		Optional<Question> question = this.questionResitory.findById(id);
+		Optional<Question> question = this.questionRepository.findById(id);
 		
 		//조건확인하고 예외처리 발생시킴
 		if(question.isPresent()) {
@@ -57,12 +58,11 @@ public class QuestionService {
 		}
 	}
 	
-	
-	
+
 	//페이징처리
 	public Page<Question> getList(int page){
-		Pageable pageable = PageRequest.of(page,10);
-		return this.questionResitory.findAll(pageable);
+		Pageable pageable = PageRequest.of(page, 10);
+		return this.questionRepository.findAll(pageable);
 	}
 	
 
