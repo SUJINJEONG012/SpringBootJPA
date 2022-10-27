@@ -1,12 +1,28 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-dd
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<a th:href="@{/question/list}">게시판 리스트 보러가기</a>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+<!-- sbb CSS -->
+<link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+
+<title>Hello, sujin!</title>
+
+</head>
+
+
+<body>
+
+	<nav th:replace="/nav/navbar :: navbarFragment"></nav>
+
+	<a th:href="@{/question/list}">게시판 리스트 보러가기</a>
+	
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+
 </body>
 </html>
