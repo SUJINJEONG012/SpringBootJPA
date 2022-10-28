@@ -20,6 +20,7 @@ import org.springframework.security.web.header.writers.frameoptions.XFrameOption
 public class SecurityConfig {
 
 	
+	//빈으로 필터를 등록해줘야 한다. 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		//시큐리티 예외처리 
@@ -31,6 +32,9 @@ public class SecurityConfig {
 //		
 		return http.build();
 	}
+
+	
+	
 	
 	//PasswordEncoder 빈(bean)을 만드는 가장 쉬운 방법은 @Configuration이 적용된 SecurityConfig에 @Bean 메서드를 생성
 	
